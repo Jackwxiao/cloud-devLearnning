@@ -1,0 +1,4 @@
+<!--pages/lists/lists.wxml-->
+<view wx:for="{{list}}">
+  <view>{{item.name}}:{{item.price}}</view>
+</view>

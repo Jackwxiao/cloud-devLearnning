@@ -1,5 +1,7 @@
 {
     "pages": [
+        "pages/lists/lists",
+        "pages/detail/detail",
         "pages/add/add",
         "pages/shujuku/shujuku",
         "pages/index/index"

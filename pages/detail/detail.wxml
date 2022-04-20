@@ -1,0 +1,5 @@
+<!--pages/detail/detail.wxml-->
+<text>
+  商品名：{{good.name}}
+  价格： {{good.price}}
+</text>

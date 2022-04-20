@@ -36,6 +36,16 @@ Page({
       console.error('修改失败', err)
     })
   },
+  remove(){
+    wx.cloud.database().collection('goods')
+    .doc('1cf827d0625fb62100fd689644471e8c')
+    .remove()
+    .then(res => {
+      console.log('删除成功', res)
+    }).catch(err => {
+      console.error('删除失败', err)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
