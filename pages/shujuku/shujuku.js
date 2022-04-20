@@ -5,7 +5,7 @@ Page({
   },
   onLoad(){
     const db = wx.cloud.database()
-    // promise写法
+    // promise写法。where条件查询
     db.collection('goods').where({
       name: "苹果"
     })
