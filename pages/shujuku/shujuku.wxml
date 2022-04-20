@@ -5,3 +5,7 @@
   价格： {{item.price}}
   </view>
 </view>
+<view>
+  查询得到的单条数据: {{good.name}},
+  价格： {{good.price}}
+</view>
