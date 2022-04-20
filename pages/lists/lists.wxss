@@ -1,1 +1,4 @@
 /* pages/lists/lists.wxss */
+input{
+  border: 1px solid gray;
+}
