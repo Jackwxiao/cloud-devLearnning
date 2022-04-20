@@ -25,7 +25,17 @@ Page({
       console.log('添加失败',err)
     })
   },
-  
+  update(){
+    wx.cloud.database().collection('goods').doc('1cf827d0625fb62100fd689644471e8c').update({
+      data: { //修改数据
+        price: 100
+      }
+    }).then(res => {
+      console.log('修改成功',res)
+    }).catch(err => {
+      console.error('修改失败', err)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
