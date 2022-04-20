@@ -1,0 +1,4 @@
+<!--pages/add/add.wxml-->
+
+<button bindtap="add">添加商品</button>
+
