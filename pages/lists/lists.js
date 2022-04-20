@@ -10,5 +10,11 @@ Page({
       })
   })
     .catch(err => {console.error('商品请求失败', err)})
+  },
+  goDetail(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + e.currentTarget.dataset.id,
+    })
   }
 })

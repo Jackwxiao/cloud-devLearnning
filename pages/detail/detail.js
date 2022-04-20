@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.cloud.database().collection('goods').doc('5464a294625fb4be017a27b1434131ae').get()
+    console.log('列表携带的值', options)
+    var id = options.id
+    wx.cloud.database().collection('goods').doc(id).get()
     .then(res =>{
       console.log('商品详情请求成功', res)
       this.setData({
