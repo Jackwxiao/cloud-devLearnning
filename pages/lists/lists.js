@@ -10,7 +10,6 @@ Page({
     wx.cloud.database().collection('goods')
       .get()
       .then(res => {
-        console.log('商品请求成功', res)
         this.setData({
           list: res.data
         })
@@ -28,6 +27,7 @@ Page({
   getName(e) {
     names = e.detail.value
   },
+  // 获取用户输入的更新价格
   getPrice(e) {
     price = e.detail.value
   },
@@ -36,7 +36,7 @@ Page({
     if (names == '' || price == '') {
       wx.showToast({
         icon: 'none',
-        title: '商品名或价格不能为空'
+        title: '添加的商品名或价格不能为空'
       })
     }
     else {
@@ -44,7 +44,7 @@ Page({
       wx.cloud.database().collection('goods').add({
         data: {
           name: names,
-          price: price
+          price: parseInt(price)
         }
       }).then(res => {
         console.log('添加商品成功', res)
@@ -54,5 +54,19 @@ Page({
       })
     }
 
+  },
+  // 排序操作 orderBy
+  goodSort(){
+    wx.cloud.database().collection('goods')
+    .orderBy('price', 'asc')
+    .get().then(res =>{
+      console.log(res)
+      this.setData({
+        list: res.data
+      })
+    })
+    .catch(err => {
+
+    })
   }
 })
