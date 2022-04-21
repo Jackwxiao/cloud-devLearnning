@@ -10,7 +10,7 @@
         {
           "name": "商品详情",
           "pathName": "pages/detail/detail",
-          "query": "",
+          "query": "id=b47ffc57625fd52b0087ee21755c4b57",
           "launchMode": "default",
           "scene": null
         }

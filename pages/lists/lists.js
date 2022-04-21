@@ -2,7 +2,6 @@ let names = ''
 let price = ''
 
 Page({
-
   onLoad() {
     this.getList()
   },

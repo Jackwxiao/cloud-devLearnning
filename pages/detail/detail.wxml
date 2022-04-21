@@ -3,3 +3,6 @@
   商品名：{{good.name}}
   价格： {{good.price}}
 </text>
+<text>更新价格为</text>
+<input bindinput = "getPrice" placeholder="请输入价格..." placeholder-style="font-size:3vw;" ></input>
+<button type="primary" bindtap="update">更新商品</button>
