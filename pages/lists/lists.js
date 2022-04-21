@@ -56,7 +56,7 @@ Page({
 
   },
   // 排序操作 orderBy
-  goodSort(){
+  goodASort(){
     wx.cloud.database().collection('goods')
     .orderBy('price', 'asc')
     .get().then(res =>{
@@ -66,7 +66,20 @@ Page({
       })
     })
     .catch(err => {
-
+      console.error(err)
+    })
+  },
+  goodDSort(){
+    wx.cloud.database().collection('goods')
+    .orderBy('price', 'desc')
+    .get().then(res =>{
+      console.log(res)
+      this.setData({
+        list: res.data
+      })
+    })
+    .catch(err => {
+      console.error(err)
     })
   }
 })
