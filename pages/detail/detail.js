@@ -46,15 +46,30 @@ Page({
         title: '请输入数字',
       })
     } else {
-      wx.cloud.database().collection('goods').doc(id).update({
-        data: {
-          price: price
+      // 本地小程序更新数据库价格
+      // wx.cloud.database().collection('goods').doc(id).update({
+      //   data: {
+      //     price: price
+      //   }
+      // }).then(res => {
+      //   console.log('更新价格成功', res)
+      //   this.getDetail()
+      // }).catch(err => {
+      //   console.error('更新价格失败', err)
+      // })
+
+      // 调用云函数更新价格
+      wx.cloud.callFunction({
+        name: 'update1',
+        data:{
+          id: id,
+          price: parseInt(price)
         }
       }).then(res => {
-        console.log('更新价格成功', res)
+        console.log("云函数价格更新成功", res)
         this.getDetail()
-      }).catch(err => {
-        console.error('更新价格失败', err)
+      }).catch(err=>{
+        console.error("云函数更新价格失败",err)
       })
     }
 
