@@ -4,8 +4,9 @@
 输入商品价格：
 <input bindinput="getPrice"></input>
 <button bindtap ="addGoods" type="primary">添加商品</button>
-<button bindtap ="goodASort" type="primary" size="mini">商品升序排序</button>
-<button bindtap ="goodDSort" type="primary" size="mini">商品降序排序</button>
+<button bindtap ="goodASort" type="primary" >商品升序排序</button>
+<button bindtap ="goodDSort" type="primary">商品降序排序</button>
+<button bindtap ="limit" type="primary">只看前三商品</button>
 <view wx:for="{{list}}">
   <view bindtap="goDetail" data-id="{{item._id}}">{{item.name}}:{{item.price}}</view>
 </view>

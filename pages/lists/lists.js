@@ -1,6 +1,5 @@
 let names = ''
 let price = ''
-
 Page({
   onLoad() {
     this.getList(0)
@@ -46,8 +45,8 @@ Page({
   },
   // 获取列表数据
   getList(type) {
-    // type为0 代表默认排序，为1代表升序，为-1代表降序  orderBy代表排序
     let db = wx.cloud.database().collection('goods')
+    // type为0 代表默认排序，为1代表升序，为-1代表降序  orderBy代表排序
     if (type == 1) {
       db = db.orderBy('price', 'asc')
     } else if (type == -1) {
@@ -66,5 +65,15 @@ Page({
   // 降序
   goodDSort() {
     this.getList(-1)
+  },
+  limit() {
+    let db = wx.cloud.database().collection('goods')
+    db.limit(3).get().then(res => {
+      this.setData({
+        list: res.data
+      })
+    }).catch(err => {
+      console.error('前三条商品信息请求失败', err)
+    })
   }
 })
