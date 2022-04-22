@@ -1,4 +1,5 @@
 {
+  "cloudfunctionRoot": "cloudFunc/",
   "appid": "wx563d27cd855c0c9b",
   "compileType": "miniprogram",
   "libVersion": "2.24.0",

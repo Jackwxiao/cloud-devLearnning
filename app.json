@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/yunhanshu/yunhanshu",
         "pages/skip/skip",
         "pages/lists/lists",
         "pages/detail/detail",
