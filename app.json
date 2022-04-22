@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/skip/skip",
         "pages/lists/lists",
         "pages/detail/detail",
         "pages/add/add",
