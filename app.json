@@ -1,8 +1,9 @@
 {
     "pages": [
+      "pages/yuncunchu/yuncunchu",
+      "pages/lists/lists",
         "pages/yunhanshu/yunhanshu",
         "pages/skip/skip",
-        "pages/lists/lists",
         "pages/detail/detail",
         "pages/add/add",
         "pages/shujuku/shujuku",

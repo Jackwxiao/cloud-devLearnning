@@ -75,31 +75,47 @@ Page({
 
   },
 
-  deleteGoods() {
-    wx.showModal({
-      title: '确定删除吗？',
-      content: '删除后该商品会永久消失！',
-      success(res) {
-        console.log('删除操作的提示信息：', res)
-        // console.log('res.xxx', res.confirm) // 确认删除
-        // console.log('res.xxx', res.cancel)  // 取消删除
-        if (res.confirm == true) {
-          // 删除操作
-          wx.cloud.database().collection('goods').doc(id)
-            .remove()
-            .then(res => {
-              console.log('删除成功！', res)
-              wx.navigateTo({
-                url: '/pages/lists/lists',
-              })
-            })
-            .catch(err => {
-              console.error('删除失败！', err)
-            })
-        } else if (res.cancel) {
+  // deleteGoods() {
+  //   wx.showModal({
+  //     title: '确定删除吗？',
+  //     content: '删除后该商品会永久消失！',
+  //     success(res) {
+  //       console.log('删除操作的提示信息：', res)
+  //       // console.log('res.xxx', res.confirm) // 确认删除
+  //       // console.log('res.xxx', res.cancel)  // 取消删除
+  //       if (res.confirm == true) {
+  //         // 删除操作
+  //         wx.cloud.database().collection('goods').doc(id)
+  //           .remove()
+  //           .then(res => {
+  //             console.log('删除成功！', res)
+  //             wx.navigateTo({
+  //               url: '/pages/lists/lists',
+  //             })
+  //           })
+  //           .catch(err => {
+  //             console.error('删除失败！', err)
+  //           })
+  //       } else if (res.cancel) {
 
-        }
+  //       }
+  //     }
+  //   })
+  // },
+  // 调用云函数删除
+  deleteGoods(){
+    wx.cloud.callFunction({
+      name: 'clremove',
+      data:{
+        id: id
       }
-    })
+    }).then(res => {
+      console.log('删除成功！',res)
+      wx.navigateTo({
+                      url: '/pages/lists/lists',
+                    })
+  }).catch(err => {
+    console.error('删除失败！',err)
+  })
   }
 })
